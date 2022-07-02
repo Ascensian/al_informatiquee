@@ -10,7 +10,14 @@ class AppFixtures extends Fixture
 {
     public function load(ObjectManager $manager): void
     {
-     
+        $admin = new User();
+        $admin->setEmail("contact@al-informatique.fr")
+            ->setPassword("1234")
+            ->setRoles(["ROLE_ADMIN"]);
+
+            $manager->persist($admin);
+
+            
         // $product = new Product();
         // $manager->persist($product);
         $faker = Factory::create();
